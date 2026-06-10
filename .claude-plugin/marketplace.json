@@ -1,0 +1,25 @@
+{
+  "name": "gsap-frontend-skill",
+  "id": "gsap-frontend-skill",
+  "owner": {
+    "name": "cybertroniankelvin"
+  },
+  "metadata": {
+    "description": "A self-hosted marketplace for the gsap-frontend skill — animated frontends with GSAP.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "gsap-frontend",
+      "source": "./",
+      "description": "Build distinctive, animated frontends with GSAP + ScrollTrigger: setup, primitives, scroll patterns, performance/a11y, and a self-extending design-language catalog.",
+      "version": "1.0.0",
+      "author": {
+        "name": "cybertroniankelvin"
+      },
+      "category": "development",
+      "keywords": ["gsap", "animation", "frontend", "scrolltrigger", "landing-page"],
+      "strict": false
+    }
+  ]
+}

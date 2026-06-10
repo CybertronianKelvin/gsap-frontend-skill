@@ -1,0 +1,85 @@
+/* ------------------------------------------------------------------ *
+ * gsap-frontend — global CSS snippet (Tailwind v4)
+ *
+ * Paste into your app's globals.css (which begins with `@import "tailwindcss";`).
+ * Contains: example brand tokens (REPLACE per brand), the keyframes the bundled
+ * components need (marquee, blob-drift), reduced-motion guards, and two utilities.
+ * ------------------------------------------------------------------ */
+
+/* ---- Brand tokens — EXAMPLE values, replace with your brand -------- */
+@theme {
+  /* Palette (example: navy + lime). Swap these hexes for your brand. */
+  --color-navy: #000f48;
+  --color-navy-dark: #00064d;
+  --color-navy-light: #2e307d;
+  --color-lime: #89fa19;
+  --color-lime-dark: #6fd80a;
+
+  /* Neutrals */
+  --color-ink: #0b1335;
+  --color-muted: #5b6080;
+  --color-line: #e6e7ef;
+  --color-surface: #f7f7fc;
+  --color-surface-2: #f0f0f5;
+
+  /* Fonts — wire these to your loaded fonts (e.g. next/font CSS variables) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-poppins), var(--font-inter), sans-serif;
+
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Headings get the display font. NOTE: setting a color here means any heading
+     on a dark background needs an explicit `text-white`/`text-lime` override,
+     or it will be invisible. (See references/gotchas.md, item L.) */
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    color: var(--color-navy);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ---- Keyframes used by the bundled components --------------------- */
+
+/* Infinite marquee track (Marquee.tsx). Two duplicated tracks each translate by
+   their full width for a seamless loop. translate3d keeps it on the GPU. */
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-100%, 0, 0); }
+}
+
+/* Ambient drifting blobs for a gradient-mesh hero (give blobs class "blob"). */
+@keyframes blob-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33%      { transform: translate3d(4%, -6%, 0) scale(1.08); }
+  66%      { transform: translate3d(-5%, 4%, 0) scale(0.95); }
+}
+
+/* Pause ambient CSS animations for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+  .blob { animation: none !important; }
+}
+
+/* ---- Optional utilities ------------------------------------------ */
+
+/* Subtle lift on hover for cards. */
+@utility card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px -24px rgba(0, 15, 72, 0.28);
+  }
+}
+
+/* Soft, brand-tinted section background. */
+@utility bg-soft {
+  background:
+    radial-gradient(60% 60% at 90% 0%, rgba(137, 250, 25, 0.10), transparent 60%),
+    radial-gradient(50% 50% at 0% 100%, rgba(46, 48, 125, 0.06), transparent 60%),
+    var(--color-surface);
+}

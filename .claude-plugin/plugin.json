@@ -1,0 +1,23 @@
+{
+  "name": "gsap-frontend",
+  "description": "Build distinctive, production-grade animated frontends with GSAP + ScrollTrigger — setup, reusable primitives, copy-paste scroll patterns, performance + prefers-reduced-motion, and a self-extending catalog of design languages.",
+  "version": "1.0.0",
+  "author": {
+    "name": "cybertroniankelvin"
+  },
+  "homepage": "https://github.com/CybertronianKelvin/gsap-frontend-skill",
+  "license": "MIT",
+  "keywords": [
+    "gsap",
+    "scrolltrigger",
+    "animation",
+    "scroll-animation",
+    "parallax",
+    "frontend",
+    "nextjs",
+    "react",
+    "tailwind",
+    "landing-page"
+  ],
+  "skills": ["./skills/gsap-frontend"]
+}
